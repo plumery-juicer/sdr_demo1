@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/plumery/sdr_project/sdr_demo1/build/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

@@ -1,0 +1,3 @@
+/home/plumery/sdr_project/sdr_demo1/build/CMakeFiles/sdr_app.dir
+/home/plumery/sdr_project/sdr_demo1/build/CMakeFiles/edit_cache.dir
+/home/plumery/sdr_project/sdr_demo1/build/CMakeFiles/rebuild_cache.dir

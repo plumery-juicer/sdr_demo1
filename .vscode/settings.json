@@ -1,0 +1,24 @@
+{
+    "VsCodeTaskButtons.tasks": [
+    {
+        "label": "$(trash) clean",
+        "task": "clean",
+        "tooltip": " Start the \"clean\" task",
+    },
+    {
+        "label": "$(source-control) Configure",
+        "task": "configure",
+        "tooltip": " Start the \"configure\" task",
+    },
+    {
+        "label": "$(sync) build",
+        "task": "build",
+        "tooltip": " Start the \"build\" task",
+    },
+    {
+        "label": "$(play) run_app",
+        "task": "run_app",
+        "tooltip": " Start the \"run_app\" task",
+    },
+    ]
+}

@@ -1,0 +1,59 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "configure",
+            "type": "shell",
+            "command": "mkdir -p build && cd build && cmake ..",
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "detail": "CMake 配置生成构建文件"
+        },
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "cd build && make -j$(nproc)",
+            "problemMatcher": {
+                "owner": "cpp",
+                "fileLocation": "relative",
+                "pattern": {
+                    "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "severity": 4,
+                    "message": 5
+                }
+            },
+            "dependsOn": ["configure"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "增量编译，修改cpp后直接执行，自动覆盖旧程序"
+        },
+        {
+            "label": "clean",
+            "type": "shell",
+            "command": "rm -rf build",
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "detail": "彻底删除build目录，干净完整重建（CMake缓存出错时用）"
+        },
+        {
+            "label": "run_app",
+            "type": "shell",
+            "command": "cd build && ./bin/sdr_app",
+            "problemMatcher": [],
+            "group": "none",
+            "dependsOn": ["build"],
+            "detail": "编译完成后，运行C++可执行程序"
+        }
+    ]
+}
