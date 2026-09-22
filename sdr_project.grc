@@ -82,7 +82,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [488, 340.0]
+    coordinate: [416, 332.0]
     rotation: 0
     state: disabled
 - name: blocks_unpack_k_bits_bb_0
@@ -98,7 +98,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [376, 276.0]
+    coordinate: [248, 340.0]
     rotation: 0
     state: disabled
 - name: blocks_vector_source_x_0_0
@@ -188,7 +188,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [504, 180.0]
+    coordinate: [528, 108.0]
     rotation: 0
     state: enabled
 - name: iio_pluto_source_0
