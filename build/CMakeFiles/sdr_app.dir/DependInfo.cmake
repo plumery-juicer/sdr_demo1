@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/plumery/sdr_project/sdr_demo1/src/main.cpp" "CMakeFiles/sdr_app.dir/src/main.cpp.o" "gcc" "CMakeFiles/sdr_app.dir/src/main.cpp.o.d"
+  "/home/plumery/sdr_project/sdr_demo1/src/my_thread.cpp" "CMakeFiles/sdr_app.dir/src/my_thread.cpp.o" "gcc" "CMakeFiles/sdr_app.dir/src/my_thread.cpp.o.d"
   "" "bin/sdr_app" "gcc" "CMakeFiles/sdr_app.dir/link.d"
   )
 

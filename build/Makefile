@@ -153,6 +153,30 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdr_app.dir/build.make CMakeFiles/sdr_app.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/my_thread.o: src/my_thread.cpp.o
+.PHONY : src/my_thread.o
+
+# target to build an object file
+src/my_thread.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdr_app.dir/build.make CMakeFiles/sdr_app.dir/src/my_thread.cpp.o
+.PHONY : src/my_thread.cpp.o
+
+src/my_thread.i: src/my_thread.cpp.i
+.PHONY : src/my_thread.i
+
+# target to preprocess a source file
+src/my_thread.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdr_app.dir/build.make CMakeFiles/sdr_app.dir/src/my_thread.cpp.i
+.PHONY : src/my_thread.cpp.i
+
+src/my_thread.s: src/my_thread.cpp.s
+.PHONY : src/my_thread.s
+
+# target to generate assembly for a file
+src/my_thread.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdr_app.dir/build.make CMakeFiles/sdr_app.dir/src/my_thread.cpp.s
+.PHONY : src/my_thread.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -165,6 +189,9 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/my_thread.o"
+	@echo "... src/my_thread.i"
+	@echo "... src/my_thread.s"
 .PHONY : help
 
 

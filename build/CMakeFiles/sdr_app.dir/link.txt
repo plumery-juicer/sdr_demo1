@@ -1,1 +1,1 @@
-/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/sdr_app.dir/link.d CMakeFiles/sdr_app.dir/src/main.cpp.o -o bin/sdr_app  -lzmq
+/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/sdr_app.dir/link.d CMakeFiles/sdr_app.dir/src/main.cpp.o CMakeFiles/sdr_app.dir/src/my_thread.cpp.o -o bin/sdr_app  -lzmq

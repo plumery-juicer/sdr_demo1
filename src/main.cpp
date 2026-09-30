@@ -6,13 +6,15 @@
 #include <cstdint>
 #include <vector>
 #include <cstddef>
+#include "fifo.h"
+#include "my_thread.h"
 
 // 配置
 const uint16_t SYNC_WORD = 0xD4D3;       // 你的同步字 8bit示例
 const int SYNC_TOLERANCE = 1;         // 汉明距离容错，允许最多1bit错误
 const size_t RING_BUF_SIZE = 4096;    // 环形缓存，至少大于同步字长度+最大帧长
-const size_t ZMQ_TagOffest = 8;      // ZMQ消息中，数据比特的起始偏移量（字节数），根据实际情况调整
-
+const size_t ZMQ_TagOffest = 0;      // ZMQ消息中，数据比特的起始偏移量（字节数），根据实际情况调整
+const size_t ZMQ_Payload_count = 6;
 // 环形缓冲区，存储收到的raw bit：只存0/1，每个元素代表1bit
 std::vector<uint8_t> ring_buf(RING_BUF_SIZE);
 size_t ring_wr_ptr = 0;   // 写指针
@@ -20,6 +22,8 @@ size_t ring_rd_ptr = 0;   // 读指针
 
 // 滑动移位寄存器：保存最近N比特，这里同步字8bit，用uint16足够
 uint16_t shift_reg = 0;
+
+RingBuffer ringBuffer(1024);
 
 
 // 原子退出标记，多线程安全
@@ -100,7 +104,7 @@ void zmq_worker(const std::string& endpoint)
                         printf("Sync found! Hamming dist=%d\n", dist);
 
                         // 示例：接下来读取N个payload比特，你自己定义帧长度
-                        const size_t PAYLOAD_BIT_CNT = 32;
+                        const size_t PAYLOAD_BIT_CNT = ZMQ_Payload_count * 8; // 例如8字节payload
                         std::vector<uint8_t> payload_bits;
                         payload_bits.reserve(PAYLOAD_BIT_CNT);
 
@@ -165,11 +169,23 @@ int main()
 
     std::thread worker_thread(zmq_worker, "tcp://127.0.0.1:5555");
 
+    std::thread th_write(writer_thread, std::ref(ringBuffer), std::ref(g_running));
+    std::thread th_read(reader_thread, std::ref(ringBuffer), std::ref(g_running));
+
+    while(g_running)
+    {
+        std::this_thread::sleep_for(std::chrono::milliseconds(200));
+    }
+
     // 主线程等待工作线程结束
     if(worker_thread.joinable())
     {
         worker_thread.join();
     }
+    if(th_write.joinable())
+        th_write.join();
+    if(th_read.joinable())
+        th_read.join();
 
     std::cout << "Program exit normally.\n";
     return 0;

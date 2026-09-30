@@ -85,12 +85,12 @@ clean: CMakeFiles/sdr_app.dir/clean
 CMakeFiles/sdr_app.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdr_app.dir/build.make CMakeFiles/sdr_app.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdr_app.dir/build.make CMakeFiles/sdr_app.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/plumery/sdr_project/sdr_demo1/build/CMakeFiles --progress-num=1,2 "Built target sdr_app"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/plumery/sdr_project/sdr_demo1/build/CMakeFiles --progress-num=1,2,3 "Built target sdr_app"
 .PHONY : CMakeFiles/sdr_app.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/sdr_app.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/plumery/sdr_project/sdr_demo1/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/plumery/sdr_project/sdr_demo1/build/CMakeFiles 3
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/sdr_app.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/plumery/sdr_project/sdr_demo1/build/CMakeFiles 0
 .PHONY : CMakeFiles/sdr_app.dir/rule
@@ -102,7 +102,7 @@ sdr_app: CMakeFiles/sdr_app.dir/rule
 # codegen rule for target.
 CMakeFiles/sdr_app.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdr_app.dir/build.make CMakeFiles/sdr_app.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/plumery/sdr_project/sdr_demo1/build/CMakeFiles --progress-num=1,2 "Finished codegen for target sdr_app"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/plumery/sdr_project/sdr_demo1/build/CMakeFiles --progress-num=1,2,3 "Finished codegen for target sdr_app"
 .PHONY : CMakeFiles/sdr_app.dir/codegen
 
 # clean rule for target.
