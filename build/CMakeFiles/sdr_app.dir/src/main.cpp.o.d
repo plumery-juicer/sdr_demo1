@@ -239,4 +239,8 @@ CMakeFiles/sdr_app.dir/src/main.cpp.o: \
  /usr/include/c++/15/bits/enable_special_members.h \
  /home/plumery/sdr_project/sdr_demo1/include/fifo.h \
  /home/plumery/sdr_project/sdr_demo1/include/my_thread.h \
- /home/plumery/sdr_project/sdr_demo1/include/fifo.h
+ /home/plumery/sdr_project/sdr_demo1/include/fifo.h \
+ /home/plumery/sdr_project/sdr_demo1/include/crc_config.h \
+ /home/plumery/sdr_project/sdr_demo1/include/referee.h \
+ /home/plumery/sdr_project/sdr_demo1/include/crc_config.h \
+ /home/plumery/sdr_project/sdr_demo1/include/referee_config.h

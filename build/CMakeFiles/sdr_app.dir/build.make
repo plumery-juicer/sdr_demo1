@@ -76,44 +76,76 @@ CMakeFiles/sdr_app.dir/src/main.cpp.o: CMakeFiles/sdr_app.dir/flags.make
 CMakeFiles/sdr_app.dir/src/main.cpp.o: /home/plumery/sdr_project/sdr_demo1/src/main.cpp
 CMakeFiles/sdr_app.dir/src/main.cpp.o: CMakeFiles/sdr_app.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/plumery/sdr_project/sdr_demo1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/sdr_app.dir/src/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sdr_app.dir/src/main.cpp.o -MF CMakeFiles/sdr_app.dir/src/main.cpp.o.d -o CMakeFiles/sdr_app.dir/src/main.cpp.o -c /home/plumery/sdr_project/sdr_demo1/src/main.cpp
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sdr_app.dir/src/main.cpp.o -MF CMakeFiles/sdr_app.dir/src/main.cpp.o.d -o CMakeFiles/sdr_app.dir/src/main.cpp.o -c /home/plumery/sdr_project/sdr_demo1/src/main.cpp
 
 CMakeFiles/sdr_app.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/sdr_app.dir/src/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/plumery/sdr_project/sdr_demo1/src/main.cpp > CMakeFiles/sdr_app.dir/src/main.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/plumery/sdr_project/sdr_demo1/src/main.cpp > CMakeFiles/sdr_app.dir/src/main.cpp.i
 
 CMakeFiles/sdr_app.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/sdr_app.dir/src/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/plumery/sdr_project/sdr_demo1/src/main.cpp -o CMakeFiles/sdr_app.dir/src/main.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/plumery/sdr_project/sdr_demo1/src/main.cpp -o CMakeFiles/sdr_app.dir/src/main.cpp.s
 
 CMakeFiles/sdr_app.dir/src/my_thread.cpp.o: CMakeFiles/sdr_app.dir/flags.make
 CMakeFiles/sdr_app.dir/src/my_thread.cpp.o: /home/plumery/sdr_project/sdr_demo1/src/my_thread.cpp
 CMakeFiles/sdr_app.dir/src/my_thread.cpp.o: CMakeFiles/sdr_app.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/plumery/sdr_project/sdr_demo1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/sdr_app.dir/src/my_thread.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sdr_app.dir/src/my_thread.cpp.o -MF CMakeFiles/sdr_app.dir/src/my_thread.cpp.o.d -o CMakeFiles/sdr_app.dir/src/my_thread.cpp.o -c /home/plumery/sdr_project/sdr_demo1/src/my_thread.cpp
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sdr_app.dir/src/my_thread.cpp.o -MF CMakeFiles/sdr_app.dir/src/my_thread.cpp.o.d -o CMakeFiles/sdr_app.dir/src/my_thread.cpp.o -c /home/plumery/sdr_project/sdr_demo1/src/my_thread.cpp
 
 CMakeFiles/sdr_app.dir/src/my_thread.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/sdr_app.dir/src/my_thread.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/plumery/sdr_project/sdr_demo1/src/my_thread.cpp > CMakeFiles/sdr_app.dir/src/my_thread.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/plumery/sdr_project/sdr_demo1/src/my_thread.cpp > CMakeFiles/sdr_app.dir/src/my_thread.cpp.i
 
 CMakeFiles/sdr_app.dir/src/my_thread.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/sdr_app.dir/src/my_thread.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/plumery/sdr_project/sdr_demo1/src/my_thread.cpp -o CMakeFiles/sdr_app.dir/src/my_thread.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/plumery/sdr_project/sdr_demo1/src/my_thread.cpp -o CMakeFiles/sdr_app.dir/src/my_thread.cpp.s
+
+CMakeFiles/sdr_app.dir/src/referee.cpp.o: CMakeFiles/sdr_app.dir/flags.make
+CMakeFiles/sdr_app.dir/src/referee.cpp.o: /home/plumery/sdr_project/sdr_demo1/src/referee.cpp
+CMakeFiles/sdr_app.dir/src/referee.cpp.o: CMakeFiles/sdr_app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/plumery/sdr_project/sdr_demo1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/sdr_app.dir/src/referee.cpp.o"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sdr_app.dir/src/referee.cpp.o -MF CMakeFiles/sdr_app.dir/src/referee.cpp.o.d -o CMakeFiles/sdr_app.dir/src/referee.cpp.o -c /home/plumery/sdr_project/sdr_demo1/src/referee.cpp
+
+CMakeFiles/sdr_app.dir/src/referee.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/sdr_app.dir/src/referee.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/plumery/sdr_project/sdr_demo1/src/referee.cpp > CMakeFiles/sdr_app.dir/src/referee.cpp.i
+
+CMakeFiles/sdr_app.dir/src/referee.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/sdr_app.dir/src/referee.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/plumery/sdr_project/sdr_demo1/src/referee.cpp -o CMakeFiles/sdr_app.dir/src/referee.cpp.s
+
+CMakeFiles/sdr_app.dir/src/crc_config.cpp.o: CMakeFiles/sdr_app.dir/flags.make
+CMakeFiles/sdr_app.dir/src/crc_config.cpp.o: /home/plumery/sdr_project/sdr_demo1/src/crc_config.cpp
+CMakeFiles/sdr_app.dir/src/crc_config.cpp.o: CMakeFiles/sdr_app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/plumery/sdr_project/sdr_demo1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/sdr_app.dir/src/crc_config.cpp.o"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sdr_app.dir/src/crc_config.cpp.o -MF CMakeFiles/sdr_app.dir/src/crc_config.cpp.o.d -o CMakeFiles/sdr_app.dir/src/crc_config.cpp.o -c /home/plumery/sdr_project/sdr_demo1/src/crc_config.cpp
+
+CMakeFiles/sdr_app.dir/src/crc_config.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/sdr_app.dir/src/crc_config.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/plumery/sdr_project/sdr_demo1/src/crc_config.cpp > CMakeFiles/sdr_app.dir/src/crc_config.cpp.i
+
+CMakeFiles/sdr_app.dir/src/crc_config.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/sdr_app.dir/src/crc_config.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/plumery/sdr_project/sdr_demo1/src/crc_config.cpp -o CMakeFiles/sdr_app.dir/src/crc_config.cpp.s
 
 # Object files for target sdr_app
 sdr_app_OBJECTS = \
 "CMakeFiles/sdr_app.dir/src/main.cpp.o" \
-"CMakeFiles/sdr_app.dir/src/my_thread.cpp.o"
+"CMakeFiles/sdr_app.dir/src/my_thread.cpp.o" \
+"CMakeFiles/sdr_app.dir/src/referee.cpp.o" \
+"CMakeFiles/sdr_app.dir/src/crc_config.cpp.o"
 
 # External object files for target sdr_app
 sdr_app_EXTERNAL_OBJECTS =
 
 bin/sdr_app: CMakeFiles/sdr_app.dir/src/main.cpp.o
 bin/sdr_app: CMakeFiles/sdr_app.dir/src/my_thread.cpp.o
+bin/sdr_app: CMakeFiles/sdr_app.dir/src/referee.cpp.o
+bin/sdr_app: CMakeFiles/sdr_app.dir/src/crc_config.cpp.o
 bin/sdr_app: CMakeFiles/sdr_app.dir/build.make
 bin/sdr_app: CMakeFiles/sdr_app.dir/compiler_depend.ts
 bin/sdr_app: CMakeFiles/sdr_app.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/plumery/sdr_project/sdr_demo1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable bin/sdr_app"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/plumery/sdr_project/sdr_demo1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable bin/sdr_app"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/sdr_app.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

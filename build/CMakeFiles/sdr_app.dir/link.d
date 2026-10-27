@@ -4,6 +4,8 @@ bin/sdr_app: \
   /usr/lib/gcc/x86_64-linux-gnu/15/crtbeginS.o \
   CMakeFiles/sdr_app.dir/src/main.cpp.o \
   CMakeFiles/sdr_app.dir/src/my_thread.cpp.o \
+  CMakeFiles/sdr_app.dir/src/referee.cpp.o \
+  CMakeFiles/sdr_app.dir/src/crc_config.cpp.o \
   /usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu/libzmq.so \
   /usr/lib/gcc/x86_64-linux-gnu/15/libstdc++.so \
   /usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu/libm.so \
@@ -55,6 +57,10 @@ bin/sdr_app: \
 CMakeFiles/sdr_app.dir/src/main.cpp.o:
 
 CMakeFiles/sdr_app.dir/src/my_thread.cpp.o:
+
+CMakeFiles/sdr_app.dir/src/referee.cpp.o:
+
+CMakeFiles/sdr_app.dir/src/crc_config.cpp.o:
 
 /usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu/libzmq.so:
 

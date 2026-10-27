@@ -1,0 +1,26 @@
+[
+{
+  "directory": "/home/plumery/sdr_project/sdr_demo1/build",
+  "command": "/usr/bin/g++  -I/home/plumery/sdr_project/sdr_demo1/include -I/home/plumery/sdr_project/sdr_demo1/src -g -std=c++17 -o CMakeFiles/sdr_app.dir/src/main.cpp.o -c /home/plumery/sdr_project/sdr_demo1/src/main.cpp",
+  "file": "/home/plumery/sdr_project/sdr_demo1/src/main.cpp",
+  "output": "CMakeFiles/sdr_app.dir/src/main.cpp.o"
+},
+{
+  "directory": "/home/plumery/sdr_project/sdr_demo1/build",
+  "command": "/usr/bin/g++  -I/home/plumery/sdr_project/sdr_demo1/include -I/home/plumery/sdr_project/sdr_demo1/src -g -std=c++17 -o CMakeFiles/sdr_app.dir/src/my_thread.cpp.o -c /home/plumery/sdr_project/sdr_demo1/src/my_thread.cpp",
+  "file": "/home/plumery/sdr_project/sdr_demo1/src/my_thread.cpp",
+  "output": "CMakeFiles/sdr_app.dir/src/my_thread.cpp.o"
+},
+{
+  "directory": "/home/plumery/sdr_project/sdr_demo1/build",
+  "command": "/usr/bin/g++  -I/home/plumery/sdr_project/sdr_demo1/include -I/home/plumery/sdr_project/sdr_demo1/src -g -std=c++17 -o CMakeFiles/sdr_app.dir/src/referee.cpp.o -c /home/plumery/sdr_project/sdr_demo1/src/referee.cpp",
+  "file": "/home/plumery/sdr_project/sdr_demo1/src/referee.cpp",
+  "output": "CMakeFiles/sdr_app.dir/src/referee.cpp.o"
+},
+{
+  "directory": "/home/plumery/sdr_project/sdr_demo1/build",
+  "command": "/usr/bin/g++  -I/home/plumery/sdr_project/sdr_demo1/include -I/home/plumery/sdr_project/sdr_demo1/src -g -std=c++17 -o CMakeFiles/sdr_app.dir/src/crc_config.cpp.o -c /home/plumery/sdr_project/sdr_demo1/src/crc_config.cpp",
+  "file": "/home/plumery/sdr_project/sdr_demo1/src/crc_config.cpp",
+  "output": "CMakeFiles/sdr_app.dir/src/crc_config.cpp.o"
+}
+]

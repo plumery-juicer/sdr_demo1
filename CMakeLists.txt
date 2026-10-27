@@ -16,7 +16,8 @@ include_directories(include)
 set(SRC_SOURCES
     src/main.cpp
     src/my_thread.cpp
-    
+    src/referee.cpp
+    src/crc_config.cpp
 )
 
 add_executable(sdr_app ${SRC_SOURCES})

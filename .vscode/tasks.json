@@ -54,6 +54,20 @@
             "group": "none",
             "dependsOn": ["build"],
             "detail": "编译完成后，运行C++可执行程序"
+        },
+        {
+            "label": "configure_debug",
+            "type": "shell",
+            "command": "mkdir -p build && cd build && cmake .. -DCMAKE_BUILD_TYPE=Debug",
+            "problemMatcher": [],
+            "detail": "配置Debug版本：-g -O0，带调试符号，断点可用"
+        },
+        {
+            "label": "configure_release",
+            "type": "shell",
+            "command": "mkdir -p build && cd build && cmake .. -DCMAKE_BUILD_TYPE=Release",
+            "problemMatcher": [],
+            "detail": "配置Release版本：-O2，无调试符号，用于正式测试"
         }
     ]
 }

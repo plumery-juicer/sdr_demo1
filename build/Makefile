@@ -129,6 +129,30 @@ sdr_app/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdr_app.dir/build.make CMakeFiles/sdr_app.dir/build
 .PHONY : sdr_app/fast
 
+src/crc_config.o: src/crc_config.cpp.o
+.PHONY : src/crc_config.o
+
+# target to build an object file
+src/crc_config.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdr_app.dir/build.make CMakeFiles/sdr_app.dir/src/crc_config.cpp.o
+.PHONY : src/crc_config.cpp.o
+
+src/crc_config.i: src/crc_config.cpp.i
+.PHONY : src/crc_config.i
+
+# target to preprocess a source file
+src/crc_config.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdr_app.dir/build.make CMakeFiles/sdr_app.dir/src/crc_config.cpp.i
+.PHONY : src/crc_config.cpp.i
+
+src/crc_config.s: src/crc_config.cpp.s
+.PHONY : src/crc_config.s
+
+# target to generate assembly for a file
+src/crc_config.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdr_app.dir/build.make CMakeFiles/sdr_app.dir/src/crc_config.cpp.s
+.PHONY : src/crc_config.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -177,6 +201,30 @@ src/my_thread.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdr_app.dir/build.make CMakeFiles/sdr_app.dir/src/my_thread.cpp.s
 .PHONY : src/my_thread.cpp.s
 
+src/referee.o: src/referee.cpp.o
+.PHONY : src/referee.o
+
+# target to build an object file
+src/referee.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdr_app.dir/build.make CMakeFiles/sdr_app.dir/src/referee.cpp.o
+.PHONY : src/referee.cpp.o
+
+src/referee.i: src/referee.cpp.i
+.PHONY : src/referee.i
+
+# target to preprocess a source file
+src/referee.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdr_app.dir/build.make CMakeFiles/sdr_app.dir/src/referee.cpp.i
+.PHONY : src/referee.cpp.i
+
+src/referee.s: src/referee.cpp.s
+.PHONY : src/referee.s
+
+# target to generate assembly for a file
+src/referee.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdr_app.dir/build.make CMakeFiles/sdr_app.dir/src/referee.cpp.s
+.PHONY : src/referee.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -186,12 +234,18 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... sdr_app"
+	@echo "... src/crc_config.o"
+	@echo "... src/crc_config.i"
+	@echo "... src/crc_config.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
 	@echo "... src/my_thread.o"
 	@echo "... src/my_thread.i"
 	@echo "... src/my_thread.s"
+	@echo "... src/referee.o"
+	@echo "... src/referee.i"
+	@echo "... src/referee.s"
 .PHONY : help
 
 

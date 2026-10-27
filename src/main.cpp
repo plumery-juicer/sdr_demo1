@@ -8,7 +8,8 @@
 #include <cstddef>
 #include "fifo.h"
 #include "my_thread.h"
-
+#include "crc_config.h"
+#include "referee.h"
 // 配置
 const uint16_t SYNC_WORD = 0xD4D3;       // 你的同步字 8bit示例
 const int SYNC_TOLERANCE = 1;         // 汉明距离容错，允许最多1bit错误
@@ -150,6 +151,7 @@ void zmq_worker(const std::string& endpoint)
         std::cout << "Worker: shutting down socket..." << std::endl;
         subscriber.close();
     }
+    
     catch(const zmq::error_t& e)
     {
         std::cerr << "ZMQ Exception: " << e.what() << std::endl;
@@ -161,24 +163,73 @@ void zmq_worker(const std::string& endpoint)
         g_running = false;
     }
 }
+radar_data radar_info;
+
+
+
+uint8_t test_data[33]={0xA5,0x18,0x00,0x02,0x10,
+    0x01,0x0a};
 
 int main()
 {
     // 注册 Ctrl‑C 信号
+
     std::signal(SIGINT, sigint_handler);
 
+    radar_info.id1.robot_1_x = 100;
+    radar_info.id1.robot_1_y = 200;
+    memcpy(&test_data[7], &radar_info.id1, sizeof(radar_info.id1));
+
+    //Append_CRC8_Check_Sum(test_data, 5);
+    uint8_t crc = Verify_CRC8_Check_Sum(test_data, 5);
+    printf("CRC8 verify result: %d\n", crc);
+    Append_CRC16_Check_Sum(test_data, 33);
+    crc = Verify_CRC16_Check_Sum(test_data, 33);
+    printf("CRC16 verify result: %d\n", crc);
+   /* for(int i=0; i<13; i++)
+    {
+        printf("test_data[%d]=%02X\n", i, test_data[i]);
+    }
+    printf("CRC8 verify result: %d\n", crc);
+    */
+    referee_t referee;
+    referee.init();
+    uint8_t index=0;
+    
+    printf("sizeof(radar_data1)=%d\n", sizeof(radar_info.id1));
+    printf("sizeof(radar_data2)=%d\n", sizeof(radar_info.id2));
+    printf("sizeof(radar_data3)=%d\n", sizeof(radar_info.id3));
+    printf("sizeof(radar_data4)=%d\n", sizeof(radar_info.id4));
+    printf("sizeof(radar_data5)=%d\n", sizeof(radar_info.id5));
+    printf("sizeof(radar_data6)=%d\n", sizeof(radar_info.id6));
+
+    if (std::getenv("WSL_DISTRO_NAME"))
+    {
+        std::cout << "✅ 在 WSL (Linux) 里面运行\n";
+    }
+    else
+    {
+        std::cout << "✅ 在原生 Windows 运行\n";
+    }
     std::thread worker_thread(zmq_worker, "tcp://127.0.0.1:5555");
 
-    std::thread th_write(writer_thread, std::ref(ringBuffer), std::ref(g_running));
-    std::thread th_read(reader_thread, std::ref(ringBuffer), std::ref(g_running));
+   // std::thread th_write(writer_thread, std::ref(ringBuffer), std::ref(g_running));
+   // std::thread th_read(reader_thread, std::ref(ringBuffer), std::ref(g_running));
 
     while(g_running)
     {
+      /*  referee.process_data(test_data[index], 1);
+        index++;
+        if(index>=33)
+        {
+            index=0;
+        }
+*/
         std::this_thread::sleep_for(std::chrono::milliseconds(200));
     }
 
     // 主线程等待工作线程结束
-    if(worker_thread.joinable())
+    /*  if(worker_thread.joinable())
     {
         worker_thread.join();
     }
@@ -186,7 +237,7 @@ int main()
         th_write.join();
     if(th_read.joinable())
         th_read.join();
-
+    */
     std::cout << "Program exit normally.\n";
     return 0;
 }
