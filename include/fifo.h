@@ -65,6 +65,15 @@ public:
         return true;
     }
 
+    uint8_t got()
+    {
+        if(isEmpty())
+            return 0;
+        uint8_t out_byte = m_buf[m_rd];
+        m_rd = (m_rd + 1) % m_buf_size;
+        return out_byte;
+    }
+
     // 丢弃n个字节，同步丢失、错误帧的时候用
     void discard(size_t n)
     {

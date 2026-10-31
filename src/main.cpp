@@ -10,16 +10,21 @@
 #include "my_thread.h"
 #include "crc_config.h"
 #include "referee.h"
+
+
 // 配置
 const uint16_t SYNC_WORD = 0xD4D3;       // 你的同步字 8bit示例
 const int SYNC_TOLERANCE = 1;         // 汉明距离容错，允许最多1bit错误
 const size_t RING_BUF_SIZE = 4096;    // 环形缓存，至少大于同步字长度+最大帧长
 const size_t ZMQ_TagOffest = 0;      // ZMQ消息中，数据比特的起始偏移量（字节数），根据实际情况调整
 const size_t ZMQ_Payload_count = 6;
+const size_t ZMQ_message_off = 10;
 // 环形缓冲区，存储收到的raw bit：只存0/1，每个元素代表1bit
 std::vector<uint8_t> ring_buf(RING_BUF_SIZE);
 size_t ring_wr_ptr = 0;   // 写指针
 size_t ring_rd_ptr = 0;   // 读指针
+
+RingBuffer referee_fifo(4096);  // 环形FIFO，存储收到的raw bit：只存0/1，每个元素代表1bit
 
 // 滑动移位寄存器：保存最近N比特，这里同步字8bit，用uint16足够
 uint16_t shift_reg = 0;
@@ -45,6 +50,8 @@ void zmq_worker(const std::string& endpoint)
 {
     try
     {
+
+
         zmq::context_t context(1);
         zmq::socket_t subscriber(context, ZMQ_SUB);
 
@@ -70,80 +77,25 @@ void zmq_worker(const std::string& endpoint)
                 {
                     continue;
                 }
-                size_t bytes = msg.size();
+                size_t bytes = msg.size()-ZMQ_message_off;
                 std::cout << "Recv: " << bytes << " bytes\n";
 
 
                 const uint8_t* p = static_cast<const uint8_t*>(msg.data());
-                size_t len = msg.size();
-
+                size_t len = msg.size()-ZMQ_message_off;
+                if(p[1+ZMQ_message_off] != p[3+ZMQ_message_off])
+                {
+                    printf("数据包错误，p[1]=%02X, p[3]=%02X\n", p[1+ZMQ_message_off], p[3+ZMQ_message_off]);
+                    continue;
+                }
+                referee_fifo.put((uint8_t*)(p+ZMQ_message_off), 15);
                 // 1) 原始十六进制打印（最常用，看二进制包）
                 std::cout << "recv len=" << len << " bytes: ";
                 for(size_t i=0; i<len; i++)
                 {
-                    printf("%d ", p[i]);
+                    printf("%d ", p[i+ZMQ_message_off]);
                 }
-                std::cout << std::endl;
-
-                // 裸数据指针，直接拿原始缓冲区，不做类型转换
-                ring_write(static_cast<uint8_t*>(msg.data()), msg.size());
-
-                while( ring_rd_ptr != ring_wr_ptr )
-                {
-                    uint8_t bit = ring_buf[ring_rd_ptr];
-                    ring_rd_ptr = (ring_rd_ptr + 1) % RING_BUF_SIZE;
-
-                    // 滑动移位寄存器：压入新bit，保存最近8bit
-                    shift_reg = ((shift_reg << 1) | bit) & 0xFFFF;
-
-                    // 同步字检测，带汉明容错
-                    int dist = hamming_dist(shift_reg, SYNC_WORD);
-                    if(dist <= SYNC_TOLERANCE)
-                    {
-                        // ========= 同步字命中！ =========
-                        // shift_reg就是匹配到的同步字，接下来开始收payload比特
-                        printf("Sync found! Hamming dist=%d\n", dist);
-
-                        // 示例：接下来读取N个payload比特，你自己定义帧长度
-                        const size_t PAYLOAD_BIT_CNT = ZMQ_Payload_count * 8; // 例如8字节payload
-                        std::vector<uint8_t> payload_bits;
-                        payload_bits.reserve(PAYLOAD_BIT_CNT);
-
-                        for(size_t b=0; b < PAYLOAD_BIT_CNT; b++)
-                        {
-                            // 环形缓冲区没有数据，需要等待下一条zmq消息到达
-                            if(ring_rd_ptr == ring_wr_ptr)
-                            {
-                                break; // 暂时退出，等待下一轮zmq消息
-                            }
-                            uint8_t pb = ring_buf[ring_rd_ptr];
-                            ring_rd_ptr = (ring_rd_ptr + 1) % RING_BUF_SIZE;
-                            payload_bits.push_back(pb);
-                        }
-
-                        // payload_bits：每个元素0/1，一比特一个元素
-                        // 【可选】把bit数组打包成真实uint8字节：8个bit拼成1字节
-                        std::vector<uint8_t> payload_bytes;
-                        for(size_t i=0; i < payload_bits.size(); i+=8)
-                        {
-                            uint8_t byte = 0;
-                            for(int k=0;k<8;k++)
-                            {
-                                if(i+k >= payload_bits.size()) break;
-                                byte = (byte <<1) | payload_bits[i+k];
-                            }
-                            payload_bytes.push_back(byte);
-                        }
-
-                        for(int i=0; i<payload_bytes.size(); i++)
-                        {
-                            printf("Payload byte[%d]: %d\n", i, payload_bytes[i]);
-                        }
-                        // payload_bytes 就是最终解析出来的原始帧字节
-                    }
-                }
-                
-                
+                std::cout << std::endl;      
             }
         }
 
@@ -163,6 +115,8 @@ void zmq_worker(const std::string& endpoint)
         g_running = false;
     }
 }
+
+
 radar_data radar_info;
 
 
@@ -176,8 +130,8 @@ int main()
 
     std::signal(SIGINT, sigint_handler);
 
-    radar_info.id1.robot_1_x = 100;
-    radar_info.id1.robot_1_y = 200;
+    radar_info.id1.robot_1_x = 0;
+    radar_info.id1.robot_1_y = 0;
     memcpy(&test_data[7], &radar_info.id1, sizeof(radar_info.id1));
 
     //Append_CRC8_Check_Sum(test_data, 5);
@@ -211,21 +165,19 @@ int main()
     {
         std::cout << "✅ 在原生 Windows 运行\n";
     }
-    std::thread worker_thread(zmq_worker, "tcp://127.0.0.1:5555");
+    std::thread worker_thread(zmq_worker, "tcp://127.0.0.1:5556");
 
    // std::thread th_write(writer_thread, std::ref(ringBuffer), std::ref(g_running));
    // std::thread th_read(reader_thread, std::ref(ringBuffer), std::ref(g_running));
 
     while(g_running)
     {
-      /*  referee.process_data(test_data[index], 1);
-        index++;
-        if(index>=33)
-        {
-            index=0;
-        }
-*/
-        std::this_thread::sleep_for(std::chrono::milliseconds(200));
+       // if(referee_fifo.available() > 0)
+       // {
+       //     referee.process_data(referee_fifo.got(), 1);    
+       // }
+       // printf("当前xy是(%d,%d)\n", radar_info.id1.robot_1_x, radar_info.id1.robot_1_y);
+        std::this_thread::sleep_for(std::chrono::milliseconds(1));
     }
 
     // 主线程等待工作线程结束

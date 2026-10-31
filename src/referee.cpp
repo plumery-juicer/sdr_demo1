@@ -44,7 +44,7 @@ void referee_t::process_data(const uint8_t data, size_t length)
         case State::WAIT_FOR_DATA:
             printf("Waiting for data...\n");
             printf("当前数组长度是%d\n", rx_buf.size());
-            printf(".当前data是%02X\n", data);
+            printf(".当前data是%0d\n", data);
             rx_buf.push_back(data);
             if(rx_buf.size()==(FRAME_HEADER_LEN+FRAME_DATA_LEN+data_length))
             {                                                                   

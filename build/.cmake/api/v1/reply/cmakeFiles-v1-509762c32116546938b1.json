@@ -104,12 +104,7 @@
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "/usr/share/cmake-4.2/Modules/Linker/GNU-C.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
-			"path" : "/usr/share/cmake-4.2/Modules/Linker/GNU.cmake"
+			"path" : "/usr/share/cmake-4.2/Modules/Platform/Linker/Linux-C.cmake"
 		},
 		{
 			"isCMake" : true,
